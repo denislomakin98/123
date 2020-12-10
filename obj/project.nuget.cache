@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tWGmnmCvj7xlm4w3fFFc6+a8ul19ZgjB0VxNmq0vL8e9wAKnQvvYRoZ09tA1M0a5itfyPqz6XtYlZLNCGAyH9w==",
+  "success": true,
+  "projectFilePath": "/Users/admin/Projects/123/123/123.csproj",
+  "expectedPackageFiles": [
+    "/Users/admin/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
+  ],
+  "logs": []
+}
