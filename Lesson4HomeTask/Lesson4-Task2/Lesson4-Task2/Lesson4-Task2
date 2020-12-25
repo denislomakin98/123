@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lesson4Task2
+{
+    class Program
+    {
+        // разделитель между числами в вводимой строке 
+        const char separate = ' ';
+        static void Main(string[] args)
+        {
+            bool isTextGood = false;//флаг проверки введеной строки на соответсвие условиям задачи
+            float sum = 0;//здесь будет сумма строк из чисел
+
+            while (!isTextGood)//цикл будет крутится пока строка не пройдет все проверки
+            {
+                //запрашиваем у пользователя строку чисел разделенных пробелами
+                string text = StringInput("Введите список чисел отделенных пробелами друг от друга:\n");
+
+                //разбиваем ее на массив строк, с удалением пустых строк
+                string[] textNumbers = text.Split(new char[] { separate }, StringSplitOptions.RemoveEmptyEntries);
+
+                float number = 0;
+
+                sum = 0;
+                isTextGood = true;
+
+                /* пытаемся конвертировать каждую строку в массиве в число и прибавить его к сумме
+                если какое-то из элементов не конвертируется в массив, то сбрасываем флаг проверки
+                и цикл перезапустится с новым запросом строки у пользователя */
+                foreach (string textNumber in textNumbers)
+                {
+                    if (!float.TryParse(textNumber, out number))
+                    {
+                        isTextGood = false;
+                        if (!isTextGood) Console.WriteLine("введенная строка не соответствует критериям, повторите ввод.\n");
+                        number = 0;
+                    }
+                    sum += number;
+                }
+
+            }
+
+
+            Console.WriteLine($"Сумма всех чисел в введенной строке равна {sum}");
+            Console.ReadKey();
+        }
+        // Запрашивает у пользователя ввод строки с заданным сообщением
+
+        private static string StringInput(string message)
+        {
+            Console.Write(message);
+            return Console.ReadLine();
+        }
+
+    }
+}
